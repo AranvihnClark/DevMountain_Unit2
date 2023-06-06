@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,7 +40,7 @@ public class Main {
 
                 // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
                 priceText = String.format("%.2f", price);
-                System.out.println("You have set the price for the regular cupcake as $" + cupcake.getPrice());
+                System.out.println("You have set the price for the regular cupcake as $" + priceText);
                 break;
             }
 
@@ -52,6 +53,11 @@ public class Main {
         // Setting the price for cupcakes.
         cupcake.setPrice(Double.parseDouble(priceText));
 
+        System.out.println("\nWe are deciding on the price for our red velvet cupcake. Here is the description:");
+
+        // Printing out cupcake's description.
+        redVelvet.type();
+
         // Grabbing user's price input for the red velvet cupcake.
         System.out.print("\nHow much would you like to charge for the red velvet cupcake? (Input a numerical number taken to 2 decimal places) ");
 
@@ -63,7 +69,7 @@ public class Main {
 
                 // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
                 priceText = String.format("%.2f", price);
-                System.out.println("You have set the price for the red velvet cupcake as $" + redVelvet.getPrice());
+                System.out.println("You have set the price for the red velvet cupcake as $" + priceText);
                 break;
             }
 
@@ -76,6 +82,11 @@ public class Main {
         // Setting the price for red velvet cupcakes.
         redVelvet.setPrice(Double.parseDouble(priceText));
 
+        System.out.println("\nWe are deciding on the price for our chocolate cupcake. Here is the description:");
+
+        // Printing out cupcake's description.
+        chocolate.type();
+
         // Grabbing user's price input for the chocolate cupcake.
         System.out.print("\nHow much would you like to charge for the chocolate cupcake? (Input a numerical number taken to 2 decimal places) ");
 
@@ -87,7 +98,7 @@ public class Main {
 
                 // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
                 priceText = String.format("%.2f", price);
-                System.out.println("You have set the price for the chocolate cupcake as $" + chocolate.getPrice());
+                System.out.println("You have set the price for the chocolate cupcake as $" + priceText);
                 break;
             }
 
@@ -106,6 +117,101 @@ public class Main {
         cupcakeMenu.add(chocolate);
 
         // Project 2 - Start
+        // Initializing the arraylist for our drinkMenu
+        ArrayList<Drink> drinkMenu = new ArrayList<Drink>();
+
+        // Creating our menu items.
+        Drink water = new Drink();
+        Soda soda = new Soda();
+        Milk milk = new Milk();
+
+        // Start of pricing our water.
+        System.out.println("\nWe are deciding on the price for our water. Here is the description: ");
+        water.type();
+
+        // Grabbing user's price input for the water drink.
+        System.out.print("\nHow much would you like to charge for the water ? (Input a numerical number taken to 2 decimal places) ");
+
+        // Confirming what was inputted is usable and converting it to a usable double for water.
+        while (true) {
+            priceText = input.nextLine();
+            try {
+                price = Double.parseDouble(priceText);
+
+                // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
+                priceText = String.format("%.2f", price);
+                System.out.println("You have set the price for the water as $" + priceText);
+                break;
+            }
+
+            // Since we are grabbing the price in a string, this is necessary to make sure we get an input that makes sense.
+            catch (NumberFormatException n){
+                System.out.print("\nYou entered value that isn't a proper price. Please try again: ");
+            }
+        }
+
+        // Setting the price for the water drink.
+
+        // Start of pricing our soda.
+        System.out.println("We are deciding on the price for our soda. Here is the description: ");
+        soda.type();
+
+        // Grabbing user's price input for the soda drink.
+        System.out.print("\nHow much would you like to charge for the soda ? (Input a numerical number taken to 2 decimal places) ");
+
+        // Confirming what was inputted is usable and converting it to a usable double for water.
+        while (true) {
+            priceText = input.nextLine();
+            try {
+                price = Double.parseDouble(priceText);
+
+                // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
+                priceText = String.format("%.2f", price);
+                System.out.println("You have set the price for the soda as $" + priceText);
+                break;
+            }
+
+            // Since we are grabbing the price in a string, this is necessary to make sure we get an input that makes sense.
+            catch (NumberFormatException n){
+                System.out.print("\nYou entered value that isn't a proper price. Please try again: ");
+            }
+        }
+
+        // Setting the price for the milk drink.
+        soda.setPrice(Double.parseDouble(priceText));
+
+        // Start of pricing our drinks.
+        System.out.println("We are deciding on the price for our milk. Here is the description: ");
+        milk.type();
+
+        // Grabbing user's price input for the water drink.
+        System.out.print("\nHow much would you like to charge for the milk ? (Input a numerical number taken to 2 decimal places) ");
+
+        // Confirming what was inputted is usable and converting it to a usable double for water.
+        while (true) {
+            priceText = input.nextLine();
+            try {
+                price = Double.parseDouble(priceText);
+
+                // If the parsing does not throw an error, this formats the double into a string that has only two decimal places.
+                priceText = String.format("%.2f", price);
+                System.out.println("You have set the price for the milk as $" + priceText);
+                break;
+            }
+
+            // Since we are grabbing the price in a string, this is necessary to make sure we get an input that makes sense.
+            catch (NumberFormatException n){
+                System.out.print("\nYou entered value that isn't a proper price. Please try again: ");
+            }
+        }
+
+        // Setting the price for the water drink.
+        milk.setPrice(Double.parseDouble(priceText));
+
+        // Adding drink objects to ArrayList.
+        drinkMenu.add(water);
+        drinkMenu.add(soda);
+        drinkMenu.add(milk);
     }
 }
 
@@ -150,27 +256,27 @@ class Drink {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
     public void type() {
         System.out.println("A fresh bottle of ice cold water.");
     }
+}
 
-    // Soda class - a child class of Drink.
-    class Soda extends Drink {
-        @Override
-        public void type() {
-            System.out.println("A cold can of soda.");
-        }
+// Soda class - a child class of Drink.
+class Soda extends Drink {
+    @Override
+    public void type() {
+        System.out.println("A cold can of soda.");
+    }
     }
 
-    // Milk class - a child class of Drink.
-    class Milk extends Drink {
-        @Override
-        public void type() {
-            System.out.println("A fresh and cool bottle of milk.");
-        }
+// Milk class - a child class of Drink.
+class Milk extends Drink {
+    @Override
+    public void type() {
+        System.out.println("A fresh and cool bottle of milk.");
     }
 }
