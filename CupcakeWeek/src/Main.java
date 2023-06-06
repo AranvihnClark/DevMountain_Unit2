@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Project 1 - Start
         // Creates a new ArrayList for the cupcakeMenu, which is a list.
         List<Cupcake> cupcakeMenu = new ArrayList<Cupcake>();
 
@@ -103,6 +104,8 @@ public class Main {
         cupcakeMenu.add(cupcake);
         cupcakeMenu.add(redVelvet);
         cupcakeMenu.add(chocolate);
+
+        // Project 2 - Start
     }
 }
 
@@ -136,5 +139,38 @@ class Chocolate extends Cupcake {
     @Override
     public void type() {
         System.out.println("A chocolate based cupcake, with chocolate frosting.");
+    }
+}
+
+// Drink class - Parent class.
+class Drink {
+    public double price;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void type() {
+        System.out.println("A fresh bottle of ice cold water.");
+    }
+
+    // Soda class - a child class of Drink.
+    class Soda extends Drink {
+        @Override
+        public void type() {
+            System.out.println("A cold can of soda.");
+        }
+    }
+
+    // Milk class - a child class of Drink.
+    class Milk extends Drink {
+        @Override
+        public void type() {
+            System.out.println("A fresh and cool bottle of milk.");
+        }
     }
 }
