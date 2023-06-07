@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
         // Project 1 - Start
         // Creates a new ArrayList for the cupcakeMenu, which is a list.
-        List<Cupcake> cupcakeMenu = new ArrayList<Cupcake>();
+        ArrayList<Cupcake> cupcakeMenu = new ArrayList<Cupcake>();
 
         // Object initialization for our ArrayList.
         Cupcake cupcake = new Cupcake();
@@ -153,7 +151,7 @@ public class Main {
         // Setting the price for the water drink.
 
         // Start of pricing our soda.
-        System.out.println("We are deciding on the price for our soda. Here is the description: ");
+        System.out.println("\nWe are deciding on the price for our soda. Here is the description: ");
         soda.type();
 
         // Grabbing user's price input for the soda drink.
@@ -181,7 +179,7 @@ public class Main {
         soda.setPrice(Double.parseDouble(priceText));
 
         // Start of pricing our drinks.
-        System.out.println("We are deciding on the price for our milk. Here is the description: ");
+        System.out.println("\nWe are deciding on the price for our milk. Here is the description: ");
         milk.type();
 
         // Grabbing user's price input for the water drink.
@@ -212,6 +210,8 @@ public class Main {
         drinkMenu.add(water);
         drinkMenu.add(soda);
         drinkMenu.add(milk);
+
+        new Order(cupcakeMenu, drinkMenu);
     }
 }
 
