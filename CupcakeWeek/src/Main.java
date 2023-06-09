@@ -211,6 +211,7 @@ public class Main {
         drinkMenu.add(soda);
         drinkMenu.add(milk);
 
+        // Project 3 - Step 5
         new Order(cupcakeMenu, drinkMenu);
     }
 }
